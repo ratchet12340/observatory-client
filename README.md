@@ -1,30 +1,68 @@
 # Observatory3_vue
 
-> A Vue.js project
+[![Build Status](https://travis-ci.org/rcos/Observatory3.svg?branch=master)](https://travis-ci.org/rcos/Observatory3)
 
-## Build Setup
+# In a progress of refactoring...
+A project tracking dashboard for Rensselaer Center for Open Source. A ground up rewrite.
 
-``` bash
-# install dependencies
-npm install
+Working to replace a system with these [features](docs/Legacy_Features.md).
+See our [planned feature set.](docs/Feature_Requirements.md)
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Features
 
-# build for production with minification
-npm run build
+Observatory is a powerful dashboard tracking open source projects and contributors that are built through Rensselaer Center for Open Source. The current implemenation can be seen in action at [rcos.io](http://rcos.io). We are a highly active community of open source developers that attend school at Rensselaer.
 
-# build for production and view the bundle analyzer report
-npm run build --report
+Key Features Include
 
-# run unit tests
-npm run unit
+- Project Tracking
+- Individual Progress reports
+- Attendance system for users
+- Information gathering and blog platform for projects
 
-# run e2e tests
-npm run e2e
+## Getting Started
+### Prerequisites
+- [Git](https://git-scm.com/)
+- [Node.js and npm](https://nodejs.org/) Node ^4.2.3, npm ^2.14.7  (nodejs-legacy for debian-based distributions)
+- [MongoDB](https://www.mongodb.org/) - Keep a running daemon with `mongod`
 
-# run all tests
-npm test
+
+- [Bower](https://bower.io/) (`npm install --global bower`)
+- [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
+```
+npm install -g grunt-cli grunt bower
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+> For Windows we recommend following these instructions to get MongoDB running: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
+
+### Developing
+1. Run `npm install` to install server dependencies.
+
+    > if you have errors running the above, try:
+    > ```
+    > sudo chown -R $USER ~/.npm
+    > ```
+
+2. Run `bower install` to install front-end dependencies.
+3. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running (or run continuously with `sudo service mongodb start` or equivalent if not on an ubuntu-based distribution)
+    > if mongodb fails to start, run the following line and retry:
+    >
+    > ```
+    > sudo mkdir -p /data/db
+    > ```
+
+4. Run `grunt serve` to start the development server. It should automatically open the client in your browser when ready.
+
+    Grunt will run the server and make the project available at [http://localhost:9000](http://localhost:9000).
+
+
+## Build & preview
+Run `grunt build` for building and `grunt serve` for preview.
+
+## Seeding the Database
+Run `grunt seed` to seed (populate) your mongoDB with dummy data
+
+## Testing
+Running `npm test` will run the unit tests with karma.
+
+Want to develop with us?
+This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.3.0.
