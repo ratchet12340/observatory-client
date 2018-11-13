@@ -35,7 +35,7 @@ export default {
       commit('unverified', json.unverified)
     })
     .catch((err) => {
-      throw err
+      commit('error', true)
     })
   },
 

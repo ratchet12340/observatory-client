@@ -37,7 +37,8 @@ export default {
   computed: {
     ...mapGetters({
       collection: 'attendance/collection',
-      unverified: 'attendance/unverified'
+      unverified: 'attendance/unverified',
+      error: 'attendance/error'
     })
   }
 }

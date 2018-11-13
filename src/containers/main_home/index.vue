@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 import MissionStatement from './components/missionStatement.vue'
 import Explore from './components/explore.vue'
 
