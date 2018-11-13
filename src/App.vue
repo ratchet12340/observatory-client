@@ -1,30 +1,25 @@
 
 <template>
   <div id="app">
-    <Notification/>
     <AppNavbar/>
-    <div class="router-wrapper">
-      <router-view/>
-    </div>
-    <AppFooter/>
+    <router-view/>
+    <!-- <AppFooter/> -->
   </div>
 </template>
 
 <script>
 import AppNavbar from '@/components/Navbar'
 import AppFooter from '@/components/Footer'
-import Notification from '@/containers/app_notification'
 
 export default {
   name: 'app',
   components: {
     AppNavbar,
-    AppFooter,
-    Notification
+    AppFooter
   },
   metaInfo: {
     title: 'Loading...',
-    titleTemplate: 'RCOS - %s', // title will always be "RCOS - ..."
+    titleTemplate: 'RCOS - %s',
     htmlAttrs: {
       lang: 'en'
     }
@@ -42,13 +37,15 @@ export default {
     background-color: #f3f3f3;
   }
 
-  .router-wrapper {
-    width: 100%;
-    height: 100%;
-    margin-top: 3.5rem;
+  .container-fluid, .container {
+    padding-top: 4.5rem;
   }
 
   #app {
+    height: 100%;
+  }
+
+  .app {
     height: 100%;
   }
 </style>

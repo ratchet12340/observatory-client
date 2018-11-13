@@ -27,6 +27,71 @@ export const COLLECTION_STATE = {
 }
 
 // // // //
+// COLLECTION_STATE as meta-mixins
+
+function buildCollectionAttribute (attributeName) {
+  return attributeName
+}
+
+function buildFetchingAttribute (attributeName) {
+  function capitalize (str) {
+    return str.replace(/\b[a-z]/, function (letter) { return letter.toUpperCase() })
+  }
+  return 'loading' + capitalize(attributeName)
+}
+
+export const BUILD_COLLECTION_GETTERS = (attributeName = 'collection') => {
+  let getters = {}
+
+  let collectionAttribute = buildCollectionAttribute(attributeName)
+  let fetchingAttribute = buildFetchingAttribute(attributeName)
+
+  // Define 'collection' getter
+  getters[collectionAttribute] = (state) => {
+    return state[collectionAttribute]
+  }
+
+  // Define 'fetching' getter
+  getters[fetchingAttribute] = (state) => {
+    return state[fetchingAttribute]
+  }
+
+  return getters
+}
+
+export const BUILD_COLLECTION_MUTATIONS = (attributeName) => {
+  let mutations = {}
+
+  let collectionAttribute = buildCollectionAttribute(attributeName)
+  let fetchingAttribute = buildFetchingAttribute(attributeName)
+
+  // Define 'collection' mutation
+  mutations[collectionAttribute] = (state, collection) => {
+    state[collectionAttribute] = collection
+  }
+
+  // Define 'fetching' mutation
+  mutations[fetchingAttribute] = (state, isFetching) => {
+    state[fetchingAttribute] = isFetching
+  }
+
+  return mutations
+}
+
+export const BUILD_COLLECTION_STATE = (attributeName = 'collection') => {
+  let state = {}
+
+  let collectionAttribute = buildCollectionAttribute(attributeName)
+  let fetchingAttribute = buildFetchingAttribute(attributeName)
+
+  // Define 'collection' attribute
+  state[collectionAttribute] = []
+  state[fetchingAttribute] = false
+
+  return state
+}
+
+// // // //
 // Adds a Model definition to a Vuex module
 export const MODEL_GETTERS = {
   model: state => {

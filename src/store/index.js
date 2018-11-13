@@ -1,31 +1,32 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import auth from './auth'
-import project from './project'
-import blog from './blog'
-import user from './user'
-import smallgroup from './smallgroup'
-import notification from './notification'
-import attendance from './attendance'
-import classyear from './classyear'
-import event from '../modules/event/store'
-import urp from './urp'
+
+// import event from '@/modules/event/store'
+import auth from '@/modules/auth/store'
+import blog from '@/modules/status_update/store'
+import project from '@/modules/project/store'
+import user from '@/modules/user/store'
+import smallgroup from '@/modules/smallgroup/store'
+import notification from '@/modules/notification/store'
+import attendance from '@/modules/attendance/store'
+import semester from '@/modules/semester/store'
+import urp from '@/modules/urp/store'
+import userRegistration from '@/modules/user_registration/store'
 
 Vue.use(Vuex)
 
-// A Vuex instance is created by combining the state, mutations, actions,
-// and getters.
+// Exports new Vuex Store instance
 export default new Vuex.Store({
   modules: {
     auth,
-    project,
     blog,
+    project,
     user,
     smallgroup,
     notification,
     attendance,
-    classyear,
-    event,
-    urp
+    semester,
+    urp,
+    user_registration: userRegistration
   }
 })
